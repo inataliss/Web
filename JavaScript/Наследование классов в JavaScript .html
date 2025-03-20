@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<script>
+class User {
+    constructor(name, surname) {
+      this.name = name;
+      this.surname = surname;
+    }
+  
+    getFullName() {
+      return `${this.name} ${this.surname}`;
+    }
+  }
+  
+  class Student extends User {
+    constructor(name, surname, year) {
+      super(name, surname);
+      this.year = year;
+    }
+  
+    getCourse() {
+      const currentYear = new Date().getFullYear(); // Получаем текущий год
+      return Math.min(currentYear - this.year, 5); // Вычисляем курс, не превышая 5
+    }
+  }
+  
+  
+  const student = new Student('Иван', 'Иванов', 2020);
+  console.log(student.getFullName()); // Выведет полное имя студента
+  console.log(`Курс: ${student.getCourse()}`); // Выведет текущий курс студента
+  </script>
+  </body>
+  </html>

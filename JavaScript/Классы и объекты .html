@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  </head>
+<body>
+<script type="text/javascript">
+// 1. Реализация класса Worker
+class Worker {
+  constructor(name, surname, rate, days) {
+    this.name = name;
+    this.surname = surname;
+    this.rate = rate;
+    this.days = days;
+  }
+
+  getSalary() {
+    return this.rate * this.days;//метод используется для вычисления зарплаты работника на основе его зарплаты  и количества отработанных дней, он выполняет следующее вычисление: зарплата = ставка * количество_дней.
+  }
+}
+
+const worker1 = new Worker('Иван', 'Иванов', 100, 20);
+const worker2 = new Worker('Петр', 'Петров', 120, 25);
+
+console.log(`Зарплата первого работника: ${worker1.getSalary()}`);
+console.log(`Зарплата второго работника: ${worker2.getSalary()}`);
+console.log(`Сумма зарплат: ${worker1.getSalary() + worker2.getSalary()}`);
+
+// 2. Модификация класса Worker с приватными свойствами и геттерами
+class WorkerPrivate {
+  #name;
+  #surname;
+  #rate;
+  #days;
+
+  constructor(name, surname, rate, days) {
+    this.#name = name;
+    this.#surname = surname;
+    this.#rate = rate;
+    this.#days = days;
+  }
+
+  getName() {
+    return this.#name;//получения значения приватного свойства #name
+  }
+
+  getSurname() {
+    return this.#surname;//получения значения приватного свойства #surname
+  }
+
+  getRate() {
+    return this.#rate;//получения значения приватного свойства #rate
+  }
+
+  getDays() {
+    return this.#days;//получения значения приватного свойства #days
+  }
+
+  getSalary() {
+    return this.#rate * this.#days;//получения значения приватного свойства #rate
+  }
+}
+
+const workerPrivate1 = new Worker('Иван', 'Иванов', 1000, 20);
+const workerPrivate2 = new Worker('Петр', 'Петров', 1500, 22);
+
+console.log(`Зарплата первого работника: ${workerPrivate1.getSalary()}`);
+console.log(`Зарплата второго работника: ${workerPrivate2.getSalary()}`);
+console.log(`Сумма зарплат: ${workerPrivate1.getSalary() + workerPrivate2.getSalary()}`);
+
+
+
+// 3. Добавление сеттеров для свойств rate и days
+class WorkerPrivateSetters {
+  #name;
+  #surname;
+  #rate;
+  #days;
+
+  constructor(name, surname, rate, days) {
+    this.#name = name;
+    this.#surname = surname;
+    this.#rate = rate;
+    this.#days = days;
+  }
+
+  getName() {
+    return this.#name;
+  }
+
+  getSurname() {
+    return this.#surname;
+  }
+
+  getRate() {
+    return this.#rate;
+  }
+
+  getDays() {
+    return this.#days;
+  }
+
+  getSalary() {
+    return this.#rate * this.#days;
+  }
+
+  setRate(rate) {
+    this.#rate = rate;
+  }
+
+  setDays(days) {
+    this.#days = days;
+  }
+}
+
+const workerPrivateSetters1 = new WorkerPrivateSetters('Иван', 'Иванов', 100, 20);
+const workerPrivateSetters2 = new WorkerPrivateSetters('Петр', 'Петров', 120, 25);
+
+console.log(`Зарплата первого работника: ${ workerPrivateSetters1.getSalary() }`);
+console.log(`Зарплата второго работника: ${ workerPrivateSetters2.getSalary() }`);
+
+workerPrivateSetters1.setRate(110);
+workerPrivateSetters2.setDays(30);
+
+console.log(`Зарплата первого работника после изменения ставки: ${ workerPrivateSetters1.getSalary() }`);
+console.log(`Зарплата второго работника после изменения количества дней: ${ workerPrivateSetters2.getSalary() }`);
+console.log(`Сумма зарплат: ${ workerPrivateSetters1.getSalary() + workerPrivateSetters2.getSalary() }`);
+
+
+    </script>
+</body>
+</html>
