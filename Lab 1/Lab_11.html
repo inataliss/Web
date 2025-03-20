@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	</head>
+<body>
+	<div id="wrap1">
+<p>я обычный абзац. </p>
+<p>я еще один обычный абзац. </p>
+
+	<div id="wrap11">
+		<p id="zadanie1"> Выведите это содержимое на страницу </p>
+			
+	</div>
+	</div>
+	<script>
+		// Последовательное обращение
+		var wrap1 = document.getElementById('wrap1');
+		var zadanie1Sequential = wrap1.querySelector('#zadanie1');
+		console.log(zadanie1Sequential.textContent); // Выводим содержимое в консоль
+		
+		// Прямое обращение
+		var zadanie1Direct = document.getElementById('zadanie1');
+		console.log(zadanie1Direct.textContent); // Выводим содержимое в консоль
+		</script>
+</body>
+
+</html>

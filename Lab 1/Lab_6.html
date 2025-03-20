@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6</title>
+</head>
+<body>
+<script>
+
+class Validator {
+    // Метод для проверки корректности email
+    isEmail(str) {
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailPattern.test(str);
+}
+
+// Метод для проверки корректности домена
+isDomain(str) {
+return /^(?:[A-Za-z0-9]+\.)+[A-Za-z]{2,6}$/.test(str);
+}
+
+// Метод для проверки корректности даты в формате ДД.ММ.ГГГГ
+isDate(str) {
+const datePattern = /^(0?[1-9]|[12][0-9]|3[01])\.(0?[1-9]|1[012])\.(19|20)\d\d$/;
+  return datePattern.test(str);
+}
+
+// Метод для проверки корректности телефона
+
+isPhone(str) {
+const phonePattern = /^\+375(29|33|44|25)\d{7}$/;
+  return phonePattern.test(str);
+}
+}
+
+
+const validator = new Validator();
+console.log(validator.isEmail('test@example.com')); // true
+console.log(validator.isDomain('example.com')); // true
+console.log(validator.isDate('31.12.2024')); // true
+console.log(validator.isPhone('+375298006892')); // true
+
+</script>
+</body>
+</html>
